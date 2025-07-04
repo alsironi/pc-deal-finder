@@ -1,0 +1,21 @@
+{
+  "name": "pc-deal-finder",
+  "version": "0.1.0",
+  "description": "Desktop widget to find PC game deals via CheapShark",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron ."
+  },
+  "keywords": [
+    "electron",
+    "cheapshark",
+    "games",
+    "deals"
+  ],
+  "author": "Alvaro Leon <hello@alsironidev.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^33.2.0"
+  }
+}
