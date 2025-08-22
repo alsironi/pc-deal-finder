@@ -6,6 +6,7 @@ function createWindow() {
     height: 600,
     resizable: true,
     minimizable: true,
+    alwaysOnTop: true,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false
