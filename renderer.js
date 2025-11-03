@@ -8,19 +8,6 @@ function setStatus(message) {
   statusEl.textContent = message || '';
 }
 
-searchBtn.addEventListener('click', () => {
-  const title = searchInput.value.trim();
-  if (!title) {
-    setStatus('Escribe el título de un juego');
-    return;
-  }
-  setStatus(`Buscando “${title}”…`);
-});
-
-searchInput.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter') searchBtn.click();
-});
-
 async function fetchDealsByTitle(title) {
   const url = `https://www.cheapshark.com/api/1.0/deals?title=${encodeURIComponent(title)}`;
   const response = await fetch(url);
@@ -28,7 +15,7 @@ async function fetchDealsByTitle(title) {
   return response.json();
 }
 
-searchBtn.addEventListener('click', async () => {
+async function runSearch() {
   const title = searchInput.value.trim();
   if (!title) {
     setStatus('Escribe el título de un juego');
@@ -47,4 +34,9 @@ searchBtn.addEventListener('click', async () => {
     searchBtn.disabled = false;
     topDealsBtn.disabled = false;
   }
+}
+
+searchBtn.addEventListener('click', runSearch);
+searchInput.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') runSearch();
 });
