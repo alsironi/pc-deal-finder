@@ -40,3 +40,24 @@ searchBtn.addEventListener('click', runSearch);
 searchInput.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') runSearch();
 });
+
+function renderDeals(deals) {
+  resultsEl.innerHTML = '';
+  if (!deals || !deals.length) {
+    resultsEl.innerHTML = '<p class="empty">No hay ofertas para mostrar.</p>';
+    return;
+  }
+  const fragment = document.createDocumentFragment();
+  deals.forEach((deal) => {
+    const card = document.createElement('article');
+    card.className = 'deal-card';
+    card.innerHTML = `
+      <div class="deal-body">
+        <h2 class="deal-title"></h2>
+      </div>
+    `;
+    card.querySelector('.deal-title').textContent = deal.title || 'Sin título';
+    fragment.appendChild(card);
+  });
+  resultsEl.appendChild(fragment);
+}
