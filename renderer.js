@@ -27,7 +27,7 @@ async function runSearch() {
   try {
     const deals = await fetchDealsByTitle(title);
     setStatus(deals.length ? `${deals.length} ofertas encontradas` : 'Sin resultados');
-    window.__lastDeals = deals;
+    renderDeals(deals);
   } catch (err) {
     setStatus(err.message || 'Error al buscar');
   } finally {
