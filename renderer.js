@@ -52,10 +52,14 @@ function renderDeals(deals) {
     const card = document.createElement('article');
     card.className = 'deal-card';
     card.innerHTML = `
+      <img class="thumb" alt="" loading="lazy" />
       <div class="deal-body">
         <h2 class="deal-title"></h2>
       </div>
     `;
+    const img = card.querySelector('.thumb');
+    img.src = deal.thumb || '';
+    img.alt = deal.title || 'Juego';
     card.querySelector('.deal-title').textContent = deal.title || 'Sin título';
     fragment.appendChild(card);
   });
