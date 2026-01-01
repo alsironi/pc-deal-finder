@@ -55,12 +55,28 @@ function renderDeals(deals) {
       <img class="thumb" alt="" loading="lazy" />
       <div class="deal-body">
         <h2 class="deal-title"></h2>
+        <p class="prices">
+          <span class="sale"></span>
+          <span class="normal"></span>
+        </p>
+        <p class="discount"></p>
       </div>
     `;
     const img = card.querySelector('.thumb');
     img.src = deal.thumb || '';
     img.alt = deal.title || 'Juego';
     card.querySelector('.deal-title').textContent = deal.title || 'Sin título';
+    const sale = Number(deal.salePrice);
+    const normal = Number(deal.normalPrice);
+    const savings = Math.round(Number(deal.savings) || 0);
+    card.querySelector('.sale').textContent = `$${sale.toFixed(2)}`;
+    card.querySelector('.normal').textContent = `$${normal.toFixed(2)}`;
+    if (savings > 0) {
+      card.querySelector('.sale').classList.add('on-sale');
+      card.querySelector('.discount').textContent = `-${savings}%`;
+    } else {
+      card.querySelector('.discount').textContent = 'Sin descuento';
+    }
     fragment.appendChild(card);
   });
   resultsEl.appendChild(fragment);
