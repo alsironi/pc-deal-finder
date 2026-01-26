@@ -81,3 +81,28 @@ function renderDeals(deals) {
   });
   resultsEl.appendChild(fragment);
 }
+
+async function fetchTopDeals() {
+  const url = 'https://www.cheapshark.com/api/1.0/deals?sortBy=Savings&pageSize=10';
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(`CheapShark ${response.status}`);
+  return response.json();
+}
+
+async function runTopDeals() {
+  searchBtn.disabled = true;
+  topDealsBtn.disabled = true;
+  setStatus('Cargando chollos top…');
+  try {
+    const deals = await fetchTopDeals();
+    setStatus(`${deals.length} chollos destacados`);
+    renderDeals(deals);
+  } catch (err) {
+    setStatus(err.message || 'Error al cargar chollos');
+  } finally {
+    searchBtn.disabled = false;
+    topDealsBtn.disabled = false;
+  }
+}
+
+topDealsBtn.addEventListener('click', runTopDeals);
