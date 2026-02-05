@@ -1,3 +1,5 @@
+const { shell } = require('electron');
+
 const searchInput = document.getElementById('searchInput');
 const searchBtn = document.getElementById('searchBtn');
 const topDealsBtn = document.getElementById('topDealsBtn');
@@ -77,6 +79,15 @@ function renderDeals(deals) {
     } else {
       card.querySelector('.discount').textContent = 'Sin descuento';
     }
+    const openBtn = document.createElement('button');
+    openBtn.type = 'button';
+    openBtn.className = 'open-deal';
+    openBtn.textContent = 'Abrir oferta';
+    openBtn.addEventListener('click', () => {
+      const dealUrl = `https://www.cheapshark.com/redirect?dealID=${encodeURIComponent(deal.dealID)}`;
+      shell.openExternal(dealUrl);
+    });
+    card.querySelector('.deal-body').appendChild(openBtn);
     fragment.appendChild(card);
   });
   resultsEl.appendChild(fragment);
