@@ -62,6 +62,7 @@ function renderDeals(deals) {
           <span class="normal"></span>
         </p>
         <p class="discount"></p>
+        <p class="store"></p>
       </div>
     `;
     const img = card.querySelector('.thumb');
@@ -79,6 +80,9 @@ function renderDeals(deals) {
     } else {
       card.querySelector('.discount').textContent = 'Sin descuento';
     }
+    card.querySelector('.store').textContent = deal.storeID
+      ? `Store ID: ${deal.storeID}`
+      : 'Tienda desconocida';
     const openBtn = document.createElement('button');
     openBtn.type = 'button';
     openBtn.className = 'open-deal';

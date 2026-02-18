@@ -161,3 +161,22 @@ button:disabled {
   text-align: center;
   padding: 2rem 0.5rem;
 }
+
+.store {
+  margin: 0.2rem 0 0.45rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.open-deal {
+  margin-top: 0.15rem;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.8rem;
+  background: transparent;
+  color: var(--neon-blue);
+  border: 1px solid rgba(0, 229, 255, 0.55);
+}
+
+.open-deal:hover {
+  background: rgba(0, 229, 255, 0.12);
+}
