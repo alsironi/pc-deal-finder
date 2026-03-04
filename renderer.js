@@ -1,5 +1,27 @@
 const { shell } = require('electron');
 
+const STORE_NAMES = {
+  '1': 'Steam',
+  '2': 'GamersGate',
+  '3': 'GreenManGaming',
+  '7': 'GOG',
+  '8': 'Origin',
+  '11': 'Humble Store',
+  '13': 'Uplay',
+  '15': 'Fanatical',
+  '21': 'WinGameStore',
+  '23': 'GameBillet',
+  '25': 'Epic Games Store',
+  '27': 'Gamesplanet',
+  '29': 'Voidu',
+  '30': 'IndieGala',
+  '31': 'Battle.net'
+};
+
+function storeLabel(storeID) {
+  return STORE_NAMES[String(storeID)] || `Store ${storeID || '?'}`;
+}
+
 const searchInput = document.getElementById('searchInput');
 const searchBtn = document.getElementById('searchBtn');
 const topDealsBtn = document.getElementById('topDealsBtn');
@@ -80,9 +102,7 @@ function renderDeals(deals) {
     } else {
       card.querySelector('.discount').textContent = 'Sin descuento';
     }
-    card.querySelector('.store').textContent = deal.storeID
-      ? `Store ID: ${deal.storeID}`
-      : 'Tienda desconocida';
+    card.querySelector('.store').textContent = storeLabel(deal.storeID);
     const openBtn = document.createElement('button');
     openBtn.type = 'button';
     openBtn.className = 'open-deal';
