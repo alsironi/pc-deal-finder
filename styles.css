@@ -180,3 +180,22 @@ button:disabled {
 .open-deal:hover {
   background: rgba(0, 229, 255, 0.12);
 }
+
+.results::-webkit-scrollbar {
+  width: 8px;
+}
+
+.results::-webkit-scrollbar-track {
+  background: #0d1428;
+  border-radius: 8px;
+}
+
+.results::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--neon-blue), var(--neon));
+  border-radius: 8px;
+}
+
+.results {
+  scrollbar-color: var(--neon-blue) #0d1428;
+  scrollbar-width: thin;
+}
