@@ -47,6 +47,7 @@ async function runSearch() {
   }
   searchBtn.disabled = true;
   topDealsBtn.disabled = true;
+  resultsEl.innerHTML = '<p class="empty">Cargando…</p>';
   setStatus(`Buscando “${title}”…`);
   try {
     const deals = await fetchDealsByTitle(title);
@@ -127,6 +128,7 @@ async function fetchTopDeals() {
 async function runTopDeals() {
   searchBtn.disabled = true;
   topDealsBtn.disabled = true;
+  resultsEl.innerHTML = '<p class="empty">Cargando…</p>';
   setStatus('Cargando chollos top…');
   try {
     const deals = await fetchTopDeals();
