@@ -33,7 +33,7 @@ function setStatus(message) {
 }
 
 async function fetchDealsByTitle(title) {
-  const url = `https://www.cheapshark.com/api/1.0/deals?title=${encodeURIComponent(title)}`;
+  const url = `https://www.cheapshark.com/api/1.0/deals?title=${encodeURIComponent(title)}&pageSize=20`;
   const response = await fetch(url);
   if (!response.ok) throw new Error(`CheapShark ${response.status}`);
   return response.json();
