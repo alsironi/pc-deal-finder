@@ -199,3 +199,7 @@ button:disabled {
   scrollbar-color: var(--neon-blue) #0d1428;
   scrollbar-width: thin;
 }
+
+.empty.error {
+  color: var(--danger);
+}

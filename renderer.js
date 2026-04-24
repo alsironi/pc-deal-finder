@@ -55,6 +55,7 @@ async function runSearch() {
     renderDeals(deals);
   } catch (err) {
     setStatus(err.message || 'Error al buscar');
+    resultsEl.innerHTML = `<p class="empty error">${err.message || 'Error al buscar'}</p>`;
   } finally {
     searchBtn.disabled = false;
     topDealsBtn.disabled = false;
@@ -136,6 +137,7 @@ async function runTopDeals() {
     renderDeals(deals);
   } catch (err) {
     setStatus(err.message || 'Error al cargar chollos');
+    resultsEl.innerHTML = `<p class="empty error">${err.message || 'Error al cargar chollos'}</p>`;
   } finally {
     searchBtn.disabled = false;
     topDealsBtn.disabled = false;
