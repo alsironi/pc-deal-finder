@@ -145,3 +145,7 @@ async function runTopDeals() {
 }
 
 topDealsBtn.addEventListener('click', runTopDeals);
+
+window.addEventListener('DOMContentLoaded', () => {
+  searchInput.focus();
+});
