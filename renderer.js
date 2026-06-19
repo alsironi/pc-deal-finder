@@ -90,7 +90,11 @@ function renderDeals(deals) {
       </div>
     `;
     const img = card.querySelector('.thumb');
-    img.src = deal.thumb || '';
+    if (deal.thumb) {
+      img.src = deal.thumb;
+    } else {
+      img.remove();
+    }
     img.alt = deal.title || 'Juego';
     card.querySelector('.deal-title').textContent = deal.title || 'Sin título';
     const sale = Number(deal.salePrice);
