@@ -27,3 +27,17 @@ npm start
 
 - Buscar: `https://www.cheapshark.com/api/1.0/deals?title=`
 - Top: `https://www.cheapshark.com/api/1.0/deals?sortBy=Savings&pageSize=10`
+
+## Estructura
+
+```
+package.json   # Electron + scripts
+main.js        # proceso principal (ventana)
+index.html     # UI
+renderer.js    # fetch CheapShark + cards
+styles.css     # dark gamer theme
+```
+
+## Notas
+
+Prototipo con `nodeIntegration: true` y `contextIsolation: false` para acceder a `shell.openExternal` desde el renderer.
